@@ -12,8 +12,9 @@ decide how to do the interface.  Guess it's time to start planning and designing
 I've decided to take different approach to designing this project.  Instead of jumping head first into
 both creating the back end logic stuff and working on the JavaFX UI design, I'm going to do an iterative
 approach and design it in three stages.
-1.  Console view only.
-2.  Console view only with the SQLite database backend
-3.  GUI version using JavaFX
+
+1. Console view only.
+2. Console view only with the SQLite database backend
+3. GUI version using JavaFX
 
 This will make things a bit easier and will expedite the development process.
