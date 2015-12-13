@@ -1,13 +1,10 @@
 package mainProgram;
-
-import java.lang.management.MemoryUsage;
-import java.sql.Connection;
-
 /**
  * JJ Small
  *
  * This is the main class for the program.
  */
+
 //import javafx.application.Application;
 //import javafx.fxml.FXMLLoader;
 //import javafx.scene.Parent;

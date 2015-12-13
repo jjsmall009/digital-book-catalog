@@ -1,6 +1,6 @@
 package mainProgram;
 
-import java.util.Scanner;
+import java.util.*;
 
 /**
  * JJ Small
@@ -33,33 +33,48 @@ public class Menu {
      * class that will do all of the heavy lifting.
      */
     protected void menuLoop() {
-        int choice = 0;
+        // We first need to get the book data from our file
+        ShelfCollection.gatherBookData();
+
         // Display the program header
         printHeader();
 
         Scanner input = new Scanner(System.in);
+        int choice = 0;
         while(choice != -1) {
             // Display the menu choices
             printChoices();
 
             System.out.print("\tChoice: ");
-            choice = input.nextInt();
+            try {
+                choice = input.nextInt();
+            } catch (InputMismatchException ex) {
+                input = new Scanner(System.in);
+                System.out.println("Please enter an integer number.\t");
+            }
 
             // Now we switch over the users choice
             switch (choice) {
                 case 1: {
-                    MenuOptions.addBook();
+                    ShelfCollection.addBook();
+                    break;
                 }case 2: {
-                    MenuOptions.removeBook();
+                    ShelfCollection.removeBook();
+                    break;
                 }case 3: {
-                    MenuOptions.createNewShelf();
+                    ShelfCollection.createNewShelf();
+                    break;
                 }case 4: {
-                    MenuOptions.viewShelfContent();
+                    ShelfCollection.viewShelfBooks();
+                    break;
                 }case 5: {
-                    MenuOptions.viewBookInfo();
+                    ShelfCollection.viewBookInfo();
+                    break;
                 }
             }
         }
+        // Finish up some stuff before we quit
+        ShelfCollection.finalizeBookData();
     }
     private static void printHeader() {
         System.out.println("===============================\n" +
@@ -72,7 +87,7 @@ public class Menu {
         System.out.println("Menu\n" +
                 "\t1.  Add book to collection\n" +
                 "\t2.  Remove book from collection\n" +
-                "\t3.  Crate new shelf\n" +
+                "\t3.  Create new shelf\n" +
                 "\t4.  View books in a shelf\n" +
                 "\t5.  View book information\n");
     }
