@@ -1,3 +1,4 @@
 .idea/
 out/
 digital-book-catalog.iml
+books.db
