@@ -11,9 +11,6 @@ package mainProgram;
 import java.sql.Connection;
 
 public class MenuOptions {
-    // First things first, create a connection to the DB which we'll pass around
-    Connection con = dbManagment.makeConnection();
-
     public static void addBook() {
 
     }
