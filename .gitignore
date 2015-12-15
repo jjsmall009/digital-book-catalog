@@ -1,4 +1,5 @@
 .idea/
 out/
 digital-book-catalog.iml
-books.db
+shelf_data.txt
+lib/
