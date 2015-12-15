@@ -12,15 +12,15 @@ import java.util.ArrayList;
 public class Shelf implements java.io.Serializable {
     private static final long serialVersionUID = 1035072804522451545L;
 
-    public int ID;
+    public int numBooks;
     public String name;
     public ArrayList<Book> books;
 
     /**
      * A shelf must have all three of these in order to be instantiated
      */
-    public Shelf(int ID, String name, ArrayList<Book> books) {
-        this.ID = ID;
+    public Shelf(int numBooks, String name, ArrayList<Book> books) {
+        this.numBooks = numBooks;
         this.name = name;
         this.books = books;
     }

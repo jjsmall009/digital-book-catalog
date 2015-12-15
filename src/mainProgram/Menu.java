@@ -34,7 +34,7 @@ public class Menu {
      */
     protected void menuLoop() {
         // We first need to get the book data from our file
-        ShelfCollection.gatherBookData();
+        ShelfCollection.gatherShelfData();
 
         // Display the program header
         printHeader();
@@ -74,7 +74,7 @@ public class Menu {
             }
         }
         // Finish up some stuff before we quit
-        ShelfCollection.finalizeBookData();
+        ShelfCollection.finalizeShelfData();
     }
     private static void printHeader() {
         System.out.println("===============================\n" +
@@ -85,10 +85,10 @@ public class Menu {
     }
     private static void printChoices() {
         System.out.println("Menu\n" +
-                "\t1.  Add book to collection\n" +
-                "\t2.  Remove book from collection\n" +
-                "\t3.  Create new shelf\n" +
+                "\t1.  Add a book\n" +
+                "\t2.  Remove a book\n" +
+                "\t3.  Create a new shelf\n" +
                 "\t4.  View books in a shelf\n" +
-                "\t5.  View book information\n");
+                "\t5.  View a specific book\n");
     }
 }

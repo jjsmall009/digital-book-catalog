@@ -9,20 +9,16 @@ package mainProgram;
 public class Book implements java.io.Serializable {
     private static final long serialVersionUID = 1035072804522451545L;
     // Everything is public because I don't want a bunch of getter/setters getting in the way
-    public int ID;
     public String title;
-    public int ISBN;
-    public String authFirst;
-    public String authLast;
+    public long ISBN;
+    public String authName;
     public String publisher;
     public String datePublished;
 
-    public Book(int ID, String title, int ISBN, String authFirst, String authLast, String publisher, String datePublished) {
-        this.ID = ID;
+    public Book(String title, long ISBN, String authName, String publisher, String datePublished) {
         this.title = title;
         this.ISBN = ISBN;
-        this.authFirst = authFirst;
-        this.authLast = authLast;
+        this.authName = authName;
         this.publisher = publisher;
         this.datePublished = datePublished;
     }
@@ -31,7 +27,7 @@ public class Book implements java.io.Serializable {
     public String toString() {
         String s = "Title: " + this.title +
                 " , ISBN: " + this.ISBN +
-                " , Author: " + this.authFirst + " " + this.authLast +
+                " , Author: " + this.authName +
                 " , Publisher: " + this.publisher +
                 " , Date Published: " + this.datePublished;
 
