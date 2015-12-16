@@ -10,7 +10,9 @@ import java.io.File;
 import java.sql.*;
 
 public class dbManagment {
-    /* Let's make a function to return a connection to the database */
+    /**
+     * Try and connect to the database if possible
+     */
     public static Connection makeConnection(){
         File f = new File("books.db");
         Connection con = null;
@@ -30,27 +32,39 @@ public class dbManagment {
         return con;
     }
 
-    /* The first time running the program, create the database and make the books table */
+    /**
+     * If there is not database, this will create it and the two tables
+     */
     public static Connection createDatabase() {
         Connection con = null;
         try {
             Class.forName("org.sqlite.JDBC");
             con = DriverManager.getConnection("jdbc:sqlite:books.db");
 
-            Statement stmt = con.createStatement();
-            String sql = "CREATE TABLE BOOKS " +
-                        "(ISBN TEXT PRIMARY KEY," +
-                        " TITLE TEXT, " +
-                        " AUTH_FIRST TEXT, " +
-                        " AUTH_LAST TEXT, " +
-                        " PUBLISHER TEXT, " +
-                        " DATE_PUBLISHED TEXT, " +
-                        " COVER BLOW)";
+            Statement stmt1 = con.createStatement();
+            Statement stmt2 = con.createStatement();
 
-            stmt.executeUpdate(sql);
-            stmt.close();
+            String sql1 = "CREATE TABLE shelf(" +
+                            "shelf_id INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                            " name TEXT not NULL);";
 
-            System.out.println("Table created successfully");
+            stmt1.executeUpdate(sql1);
+            stmt1.close();
+
+            String sql2 = "CREATE TABLE BOOKS(" +
+                        "book_id INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                        " title TEXT not NULL, " +
+                        " author TEXT not NULL, " +
+                        " isbn INTEGER, " +
+                        " publisher TEXT, " +
+                        " date_published TEXT, " +
+                        " shelf_id INTEGER, " +
+                        " FOREIGN KEY (shelf_id) REFERENCES shelf(shelf_id));";
+
+            stmt2.executeUpdate(sql2);
+            stmt2.close();
+
+            System.out.println("Database created successfully");
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
