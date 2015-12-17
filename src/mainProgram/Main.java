@@ -24,11 +24,11 @@ public class Main {
 //    }
 
     /**
-     * Main function.  Creates a connection to the database and then starts the menu loop
+     * Main function.
      */
     public static void main(String[] args) {
         //launch(args);
-        // Now let's create the menu and get it running
+        // Now let's create the menu and get everything running
         Menu mainMenu = Menu.createMenu();
         mainMenu.menuLoop();
     }

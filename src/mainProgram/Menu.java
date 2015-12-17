@@ -34,7 +34,7 @@ public class Menu {
      */
     protected void menuLoop() {
         // We first need to get the book data from our file
-        ShelfCollection.gatherShelfData();
+        BookcaseOptions.establishConnection();
 
         // Display the program header
         printHeader();
@@ -56,39 +56,43 @@ public class Menu {
             // Now we switch over the users choice
             switch (choice) {
                 case 1: {
-                    ShelfCollection.addBook();
+                    BookcaseOptions.addBook();
                     break;
                 }case 2: {
-                    ShelfCollection.removeBook();
+                    BookcaseOptions.removeBook();
                     break;
                 }case 3: {
-                    ShelfCollection.createNewShelf();
+                    BookcaseOptions.createNewShelf();
                     break;
                 }case 4: {
-                    ShelfCollection.viewShelfBooks();
+                    BookcaseOptions.removeShelf();
                     break;
                 }case 5: {
-                    ShelfCollection.viewBookInfo();
+                    BookcaseOptions.viewShelfBooks();
+                    break;
+                }case 6: {
+                    BookcaseOptions.viewBookInfo();
                     break;
                 }
             }
         }
         // Finish up some stuff before we quit
-        ShelfCollection.finalizeShelfData();
+        BookcaseOptions.closeConnection();
     }
-    private static void printHeader() {
+    private void printHeader() {
         System.out.println("===============================\n" +
                 "///////////////////////////////\n" +
                 "     DIGITAL BOOK CATALOG      \n" +
                 "///////////////////////////////\n" +
                 "===============================");
     }
-    private static void printChoices() {
+    private void printChoices() {
         System.out.println("Menu\n" +
                 "\t1.  Add a book\n" +
                 "\t2.  Remove a book\n" +
                 "\t3.  Create a new shelf\n" +
-                "\t4.  View books in a shelf\n" +
-                "\t5.  View a specific book\n");
+                "\t4.  Remove a shelf\n" +
+                "\t5.  View books in a shelf\n" +
+                "\t6.  View a specific book\n");
     }
 }
