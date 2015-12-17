@@ -1,4 +1,4 @@
-package mainProgram;
+package MainProgram;
 
 /**
  * JJ Small
@@ -343,7 +343,7 @@ public class BookcaseOptions {
         Volume v = volumes.getItems().get(choice);
         Volume.VolumeInfo info = v.getVolumeInfo();
 
-         return new Book(info.getTitle(),
+        return new Book(info.getTitle(),
                             Long.parseLong(info.getIndustryIdentifiers().get(0).getIdentifier()),
                             info.getAuthors().get(0), info.getPublisher(),
                             info.getPublishedDate());
